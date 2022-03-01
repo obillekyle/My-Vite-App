@@ -1,0 +1,153 @@
+.iconify {
+  font-size: 24px;
+}
+
+.indicator-vertical {
+
+}
+
+.main-nav {
+  position: sticky;
+  display: flex;
+  height: 60px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--shade);
+  .logo {
+    height: 56px;
+    display: grid;
+    place-items: center;
+    .iconify {
+      font-size: 36px;
+    }
+  }
+}
+
+main {
+  padding: 8px;
+  margin-bottom: 48px;
+}
+
+main, .cover h1 {
+  animation: mainOpen 0.5s forwards;
+}
+
+@keyframes mainOpen {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.side-nav {
+  height: 48px;
+  display: flex;
+  position: fixed;
+  inset: auto 0 0 0;
+  align-content: center;
+  justify-content: space-evenly;
+  border-top: 1px solid var(--shade);
+  .logo, .separator {
+    display: none;
+  }
+  .links {
+    flex-grow: 1;
+    display: grid;
+    padding-top: 3px;
+    place-items: center;
+    transition: border 0.15s;
+    border-bottom: 3px solid transparent;
+    &.active {
+      border-bottom: 3px solid #0084ff;
+    }
+  }
+}
+
+.cover {
+  height: 250px;
+  padding: 16px;
+  background-size: cover !important; 
+  background-position: center !important;
+  background: linear-gradient(to bottom, transparent, var(--shade) 100%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.round-square {
+  min-height: 60px;
+  border-radius: 8px;
+  border: 1px solid var(--shade);
+  .list {
+    height: 48px;
+    .contain {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 16px;
+      font-weight: 500;
+    }
+  }
+  .list + .list {
+    &::before {
+      content: "";
+      height: 1px;
+      background: var(--shade);
+      width: calc( 100% - 32px );
+      display: flex;
+
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  main, .cover {
+    margin: 0;
+    padding: 16px;
+    margin-left: 60px;
+  }
+  .main-nav {
+    display: none;
+  }
+  .side-nav {
+    width: 60px;
+    height: 100%;
+    border: none;
+    inset: 0 auto 0 0;
+    padding: 8px 0;
+    flex-direction: column;
+    justify-content: unset;
+    border-right: 1px solid var(--shade);
+    .logo {
+      height: 56px;
+      display: grid;
+      place-items: center;
+      .iconify {
+        font-size: 36px;
+      }
+    }
+    .separator {
+      display: grid;
+      height: 1px;
+      background-color: var(--shade);
+      margin: 8px;
+    }
+    .links {
+      flex-grow: 0;
+      padding: 16px 12px 16px 9px;        
+      border: none;
+      border-left: 3px solid transparent;
+      &.active {
+        border: none;
+        border-left: 3px solid #0084ff;
+      }
+    }
+  }
+}
