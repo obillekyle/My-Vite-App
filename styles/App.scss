@@ -24,6 +24,7 @@
 
 main {
   padding: 8px;
+  max-width: 100%;
   margin-bottom: 48px;
 }
 
@@ -74,7 +75,7 @@ main, .cover h1 {
   background: linear-gradient(to bottom, transparent, var(--shade) 100%);
 }
 
-.header {
+.flex {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -86,12 +87,15 @@ main, .cover h1 {
   border: 1px solid var(--shade);
   .list {
     height: 48px;
-    .contain {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 16px;
-      font-weight: 500;
+  }
+  .contain {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+    font-weight: 500;
+    p {
+      flex-grow: 1;
     }
   }
   .list + .list {
@@ -101,7 +105,6 @@ main, .cover h1 {
       background: var(--shade);
       width: calc( 100% - 32px );
       display: flex;
-
       margin: 0 auto;
     }
   }

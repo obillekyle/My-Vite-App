@@ -1,10 +1,16 @@
-import { Icon } from '@iconify/react'
-import { FC, HTMLAttributes } from 'react'
-import { Cover } from '../cover'
+import { FC, Fragment, HTMLAttributes } from 'react'
+import { Cover } from '../misc/cover'
+import { Heading } from '../misc/heading'
+import { List } from '../misc/list'
+
+
+const posts = await (await fetch("")).json()
 
 export const HomePage:FC<HTMLAttributes<HTMLElement>> = (props) => {
 
   delete props.children
+
+ console.log(posts)
 
   return (
     <>
@@ -15,27 +21,19 @@ export const HomePage:FC<HTMLAttributes<HTMLElement>> = (props) => {
       </Cover>
       <main {...props}>
 
-        <h2 className="header">
-          <Icon icon="ic:sharp-trending-up"/>
-          Trending
-        </h2>
-        <div className="round-square">
-          <div className="list">
-            <div className="contain">
-              #Hello
-            </div>
+        <Fragment>
+          <Heading icon="ci:trending-up" name="Trending"/>
+          <div className="round-square">
+            <List name="Hellow" percent="49%"/>
+            <List name="NOOOO0" percent="27%"/>
+            <List name="endWW3" percent="24%"/>
           </div>
-          <div className="list">
-            <div className="contain">
-              #NOOOOOO
-            </div>
-          </div>
-          <div className="list">
-            <div className="contain">
-              #WW3
-            </div>
-          </div>
-        </div>
+        </Fragment>
+
+        <Fragment>
+          <Heading icon="ci:calendar" name="Latest Posts"/>
+
+        </Fragment>
       </main>
     </>
   )
